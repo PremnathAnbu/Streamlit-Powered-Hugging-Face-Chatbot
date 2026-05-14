@@ -48,7 +48,7 @@ class GraphBuilder:
         
         self.graph_builder.add_edge(START,"chatbot")
         self.graph_builder.add_conditional_edges("chatbot",tools_condition)
-        self.graph_builder.add_edge("tools",END)
+        self.graph_builder.add_edge("tools","chatbot")
         
         
         
@@ -60,7 +60,7 @@ class GraphBuilder:
         if usecase =="Basic Chatbot":
             self.basic_chatbot_builder_graph()
             
-        if usecase == 'Chatbot with Tools':
+        elif usecase == 'Chatbot with Tool':
             self.chatbot_with_tools_build_graph()
             
         return self.graph_builder.compile()
